@@ -1,5 +1,5 @@
 -- Split command with given separator
-function split_command(inputstr, sep)
+function split_string(inputstr, sep)
 	if sep == nil or sep == "" then
 		sep = "%s"
 	end
