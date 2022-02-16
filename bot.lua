@@ -10,9 +10,15 @@ client:on('ready', function()
 end)
 
 client:on('messageCreate', function(message)
-	local data = parse_command(message.content)
+	local data,status_code = parse_command(message.content)
 	-- If not nil
 	if data then
+		-- Error code
+		if status_code ~= 0 then
+			data = "ERR : Invalid calculation option\n" .. data
+		end
+
+		-- Send result
 		message.channel:send(data)
 	end
 end)

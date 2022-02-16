@@ -1,17 +1,12 @@
 require 'src/util'
-require 'src/command'
+require 'src/gcalc'
 
+local arg = "!gcalc tktk"
 local arg = "!gcalc range --count 5 --probability 0.2"
-local arg = "!gcalc"
 
-local arg_table = split_command(arg)
-local command = arg_table[1]
+local data, code = parse_command(arg)
 
-if command ~= "!gcalc" then
-	return
+if data then
+	print("Statuscode : " .. code)
+	print(data)
 end
-
--- Currently this simply sends everything including verbose error
--- Maybe this behaviour might change later
-local data = execute_binary(arg:sub(2,#arg))
-print(data)

@@ -26,9 +26,10 @@ function get_bot_token()
 	return token
 end
 
+-- Both print stdout and stderr
 function execute_binary(argument)
-	local file = io.popen(argument, "r")
+	local file = io.popen(argument .. "2>&1", "r")
 	local data = file:read("*all")
-	file:close()
-	return data
+	local rc = {file:close()}
+	return data, rc[3]
 end

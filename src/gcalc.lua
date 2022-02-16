@@ -1,6 +1,7 @@
 require 'src/util'
 
 -- Parse given statement from bot
+-- Return data + exit code
 function parse_command(statement)
 	-- Simply send help message
 	if statement == "!gcalc" then
@@ -13,7 +14,7 @@ function parse_command(statement)
 	-- Only execugte gcalc command
 	-- Possibly preset later
 	if command ~= "!gcalc" then
-		return nil
+		return nil, 1
 	end
 
 	-- Currently this simply sends everything including verbose error
