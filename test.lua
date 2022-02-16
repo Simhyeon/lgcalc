@@ -1,8 +1,8 @@
 require 'src/util'
 require 'src/command'
 
-local binary_name = "gcalc"
 local arg = "!gcalc range --count 5 --probability 0.2"
+local arg = "!gcalc"
 
 local arg_table = split_command(arg)
 local command = arg_table[1]
