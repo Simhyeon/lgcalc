@@ -19,7 +19,7 @@ client:on('messageCreate', function(message)
 		end
 
 		-- Send result wrapped in code block for proper formatting
-		message.channel:send("```" .. data .. "```")
+		message.channel:send("```\n" .. data .. "\n```")
 	end
 end)
 
