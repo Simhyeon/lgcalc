@@ -1,27 +1,17 @@
 require 'src/util'
 require 'src/command'
 
-local arg = "range --count 5 --probability 0.2"
+local binary_name = "gcalc"
+local arg = "!gcalc range --count 5 --probability 0.2"
+
 local arg_table = split_command(arg)
 local command = arg_table[1]
 
--- Check special command
--- and execute according to it
-if command:sub(1,1) == '!' then
-	local result = command_table[command.sub(1,#command)]
-	if not result then
-		print(result)
-	end
+if command ~= "!gcalc" then
+	return
 end
 
--- Sanitize calcaultion type
-local calc_type = arg_table[2]
-if calc_type_table[calc_type] == nil then
-	print("Unsupported calculation type " .. calc_type)
-end
-
-local file = io.popen("gcalc " .. arg,"r")
-local data = file:read("*all")
-file:close()
-
+-- Currently this simply sends everything including verbose error
+-- Maybe this behaviour might change later
+local data = execute_binary(arg:sub(2,#arg))
 print(data)
