@@ -12,7 +12,7 @@ end)
 client:on('messageCreate', function(message)
 	local data = parse_command(message.content)
 	-- If not nil
-	if not data then
+	if data then
 		message.channel:send(data)
 	end
 end)
