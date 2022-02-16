@@ -28,7 +28,7 @@ end
 
 -- Both print stdout and stderr
 function execute_binary(argument)
-	local file = io.popen(argument .. "2>&1", "r")
+	local file = io.popen(argument .. " 2>&1", "r")
 	local data = file:read("*all")
 	local rc = {file:close()}
 	return data, rc[3]
