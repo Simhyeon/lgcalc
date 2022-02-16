@@ -1,17 +1,14 @@
 # milestone
 
-- Set up discord application 
+* [x] Set up discord application 
 	* [x] Login
 	* [x] Token
-- Learn some discord bot basics ( guild, shard, workflow )
-- Learn the basics of discordia
-- Connect gcalc api
-- Create discord bot
+* Create discord bot
 
 # Todo
 
-**Packaging**
-
-- No dependencies in package.lua file
-
-**Source code**
+* [ ] Implement gcalc-preset
+	* [ ] gcalc-preset --list
+	* [ ] gcalc-preset range blue\_archive
+	* [ ] gcalc-preset qual blue\_archive
+	* [ ] gcalc-preset cond blue\_archive

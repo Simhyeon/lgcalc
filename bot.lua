@@ -18,10 +18,12 @@ client:on('messageCreate', function(message)
 			data = "ERR : Invalid calculation option\n" .. data
 		end
 
-		-- Send result
-		message.channel:send(data)
+		-- Send result wrapped in code block for proper formatting
+		message.channel:send("```" .. data .. "```")
 	end
 end)
 
+-- Get token from environment
 local token = os.getenv("BOT_TOKEN")
+-- Main entry
 client:run('Bot ' .. token)

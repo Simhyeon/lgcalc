@@ -11,6 +11,7 @@ function split_command(inputstr, sep)
 	return t
 end
 
+-- Read a file into a string
 function read_file(path)
 	local open = io.open
     local file = open(path, "r")
@@ -18,12 +19,6 @@ function read_file(path)
     local content = file:read "*a" -- *a or *all reads the whole file
     file:close()
     return content
-end
-
-function get_bot_token()
-	local fileContent = read_file(".env");
-	local token = split_command(fileContent,"=")[2]
-	return token
 end
 
 -- Both print stdout and stderr
