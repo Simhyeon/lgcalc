@@ -46,7 +46,7 @@ client:on('messageCreate', function(message)
 			if next_chunk:len() < SEND_LIMIT - separator:len() then
 				chunk = next_chunk .. line_sep -- Update chunk
 			else -- Split text if text is bigger than SEND_LIMIT
-				print(chunk .. separator) -- Send chunk
+				message.channel:send(chunk .. separator) -- Send chunk
 				chunk = "```\n" .. target_line .. line_sep
 			end
 			counter = counter + 1
@@ -54,7 +54,7 @@ client:on('messageCreate', function(message)
 
 		-- Flush remaining chunk
 		if chunk:len() ~= 0 then
-			print(chunk .. separator) -- Send chunk
+			message.channel:send(chunk .. separator) -- Send chunk
 		end
 	end
 end)
