@@ -21,7 +21,7 @@ client:on('messageCreate', function(message)
 
 	-- Currently this simply sends everything including verbose error
 	-- Maybe this behaviour might change later
-	local data = execute_binary("./" .. arg:sub(2,#message.content))
+	local data = execute_binary("./" .. message.content:sub(2,#message.content))
 	message.channel:send(data)
 end)
 
