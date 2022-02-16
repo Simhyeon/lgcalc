@@ -8,7 +8,7 @@ function parse_command(statement)
 		return execute_binary("./gcalc --help")
 	end
 
-	local arg_table = split_command(statement)
+	local arg_table = split_string(statement)
 	local command = arg_table[1]
 
 	-- Only execugte gcalc command
